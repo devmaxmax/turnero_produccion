@@ -1,0 +1,7 @@
+<?php  
+
+$general['root']="http://rwred.com/TurnosWeb4";
+
+$general['site']="http://rwred.com";
+
+?>

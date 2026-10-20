@@ -1,0 +1,207 @@
+/*
+letra azul web #4e79b5
+letra roja web #bc3425
+*/
+.nicEdit-main{background-color: #FFFFFF;}
+.radiob {}
+img {border: none;}
+a:link {color: #333333;	text-decoration: none;}
+a:visited {	text-decoration: none;	color: #333333;}
+a:hover {	text-decoration: none;}
+a:active {	text-decoration: none;}
+
+/*header*/
+.banner1 {background:#FFFFFF;}/*fila superior*/
+.banner2 {background-image:url(Imagenes/LogoEmpresa.png);height:50px;background-repeat: no-repeat;  }/*logo*/
+.banner3 { text-align:right; vertical-align:top; padding-right:5px}/*fondo*/
+.banner3 a{	color: #383b40;font: 14px 'ubuntu', Arial; }
+.banner3 a:hover{color: #bc3425;}
+/*
+.banner1 {background:#FFFFFF;}
+.banner2 { background-image:url(Imagenes/LogoEmpresa.png),url(Imagenes/bgr.png);height:46px;background-repeat: no-repeat, repeat;  }
+.banner3 {background:url(Imagenes/bgr.png) top left repeat-x; text-align:right; vertical-align:top; padding-right:5px}
+.banner3 a{	color: #383b40;font: 14px 'ubuntu', Arial; }
+.banner3 a:hover{color: #bc3425;}
+*/
+
+
+/*footer*/
+.footer1{text-transform:lowercase; text-align:right;padding: 5px 0px 0px 0px;font: 10px 'ubuntu', Arial;color:#FFFFFF;background-image:url(Imagenes/f0.png);}
+.footer2{text-align:center;padding: 5px 0px 0px 0px;font: 10px 'ubuntu', Arial;color:#FFFFFF;background-image:url(Imagenes/f0.png);}
+.footer2 a{color: #FFFFFF;}
+.footer2 a:hover{color: #4d636f;}
+.footerNGI{text-align:right;padding: 10px 0px 0px 0px;font: 10px 'ubuntu', Arial;background-image:url(Imagenes/f0.png);vertical-align:bottom; }
+.footerNGI a{color: #FFFFFF;text-decoration: none;}
+.footerNGI a:hover{color: #FFFFFF;text-decoration: none;}
+
+
+
+/*body*/
+.leftbar {
+	background: #FFFFFF;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;   
+
+}
+.fondo {background:#FFFFFF;}
+body,td,th {
+	font: 11px 'ubuntu', Arial;
+	font-weight:normal;
+	color: #333333;
+	scrollbar-face-color: #CCCCCC;
+	scrollbar-highlight-color: #eeeeee;
+	scrollbar-shadow-color: #eeeeee;
+	scrollbar-3dlight-color: #CCCCCC;
+	scrollbar-arrow-color: #7B896F;
+	scrollbar-track-color: #eeeeee;
+	scrollbar-darkshadow-color:#CCCCCC;	
+}
+body {background-color:#f5f7f8;}
+
+
+/*formulario*/
+.campos{font-family: Tahoma;font-size: 11px;color: #000000;border:1px solid rgba(144, 144, 144, 0.55);}
+.TextBoxLogin{font-family: Tahoma;font-size: 11px;color: #000000;border: 1px solid rgba(144, 144, 144, 0.55);height:20px;}
+.TextBox{font-family: Tahoma;font-size: 11px;color: #000000;border:1px solid rgba(144, 144, 144, 0.55);}
+.TextBoxRO{	font-family: Tahoma;font-size: 11px;color: #000000;	background:transparent;border: 1px solid rgba(144, 144, 144, 0.55);}
+.TextBox2{	font-family: Tahoma;font-size: 11px;border: none;background:transparent;color:#00668e;font-weight:bold;}
+
+
+
+/* login */
+.post2 {	color: #202020;}
+.post2 .title21 a{color: #008BCA;font-weight: bold;}
+.post2 .title22 a{color: #008BCA;}
+.post2 .title21 a:hover{color: #006897;text-decoration: none;}
+.post2 .title22 a:hover{color: #006897;text-decoration: none;}
+
+
+/*inicio intranet*/
+.post {	font: 14px 'ubuntu', Arial;color: #202020;padding: 0px 0px 20px 0px;}
+.post .title {color: #bc3425;font: 16px 'ubuntu', Arial;padding: 5px 0px 0px 0px;}
+.post .title2 {margin: -3px 0px 0px 0px;color: #4e79b5;font: 16px 'ubuntu', Arial;font-weight: bold;padding: 5px 0 5px 0;}
+.post .entry {margin: 6px 0px 0px 0px;padding: 0px 0px 10px 0px;font: 13px 'ubuntu', Arial;font-weight: normal;text-align: justify;color: #232323;line-height:1.5;}
+
+/*otros*/
+.recuento {color: #666666;font-style: italic;font-size: 11px;}
+.comentario {color: #666666;font-size: 11px;}
+.comentario1 {font-size: 11px;	font-style: italic;color: #666; }
+.comentario2 {color: #4CAF50;	font-weight:bold;}
+.comentario3 {color: #bc3425;	font-weight:bold;}
+.MuestraError{color: #f44336;font-weight:bold;}
+.MuestraConf{color: #00bcd4;font-weight:bold;}
+.MuestraCampoRequerido{	color: #bc3425;font-size:12px;vertical-align:middle; font-weight:bold}
+
+.Titulo{color: #484848;font-size:14px;font-weight:bold;}
+.TituloLoguin1{color: #484848;	font: bold 18px 'ubuntu', Arial;}
+.TituloLoguin2{color: #4e79b5;	font: normal 13px  'ubuntu', Arial;}
+
+
+
+/* Menu */
+#menuv {width: 140px;color: #FFFFFF;font-size:12px;cursor:pointer;margin: 0;	padding: 0;}
+#menuv ul, li {	list-style-type: none;margin:0px;padding:5px; background-image:url(Imagenes/f1.png);}
+#menuv ul {	margin:0;padding:0;}
+#menuv a {	text-decoration: none;	color: #FFFFFF;}
+.submenu{text-indent: 8px; }
+#menuv li:hover {background-image:url(Imagenes/f0.png);}
+.estilomenu{background-color:#7d97a5;width: 140px; }
+
+
+/*tablas*/
+.TablaLogin{background-color:rgba(144, 144, 144, 0.075);border:1px solid rgba(144, 144, 144, 0.55);border-radius: 4px; }
+.TablaLogin td{ padding:0px 0px 5px 0px;}
+.Tabla{background-color:rgba(144, 144, 144, 0.045);border:1px solid rgba(144, 144, 144, 0.55);border-radius: 4px; }
+.Tabla td{padding:0px 0px 3px 0px;}
+
+
+
+/* Tablas de datos */
+.TablaTituloDato{background:#becbd2;border-top:1px solid #FFFFFF; border-bottom:1px solid #FFFFFF;font-family: 'ubuntu', Arial;	font-weight:bold; color: #000000;empty-cells: show;	padding:2px;}
+.TablaTituloLeft{border-top:1px solid #FFFFFF; border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF; color: #FFFFFF;empty-cells: show; }
+.TablaTituloRight{border-top:1px solid #FFFFFF;border-bottom:1px solid #FFFFFF;border-left:1px solid #FFFFFF;color: #FFFFFF;empty-cells: show; }
+.TablaDato{	empty-cells:show;background-color:rgba(144, 144, 144, 0.05);border-bottom:1px solid #FFFFFF; color: #333333;padding:1px;}
+.TablaDatoR2{empty-cells:show;background-color:rgba(144, 144, 144, 0.05);border-bottom:1px solid #FFFFFF; color: #86868b;padding:1px;	}
+.TablaDato2{empty-cells:show;background-color:rgba(144, 144, 144, 0.05);border-bottom:1px solid #FFFFFF; color: #9ab7c1;padding:1px;}
+.TablaDatoR{	background-color:rgba(144, 144, 144, 0.05);border-bottom:1px solid #FFFFFF; color: #bc3425;empty-cells: show; 	padding:1px;}
+.TablaDatoV{	background-color:rgba(144, 144, 144, 0.05);border-bottom:1px solid #FFFFFF; color: #4e79b5;empty-cells: show; 	padding:1px;}
+.TablaMostrarLeft{	background-color:#f5f4eb;border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;color: #000000;	empty-cells: show; }
+.TablaMostrarRight{	background-color:#f5f4eb;border-bottom:1px solid #FFFFFF;border-left:1px solid #FFFFFF;color: #000000;empty-cells: show; }
+
+
+
+/*botones form*/
+.botonlog{ color: #ffffff;font: normal 11px 'ubuntu', Arial;	width:130px;cursor:pointer;border:none;height:20px;-moz-appearance: none;-webkit-appearance: none;-ms-appearance: none;appearance: none;border-radius: 4px;border: 0;cursor: pointer;display: inline-block;	text-align: center;	text-decoration: none;background-image:url(Imagenes/b2.png); }
+.botondisp{ color: #FFFFFF;background-color:#669900;	font: normal 11px 'ubuntu', Arial;	width:60px;cursor:pointer;border:none;height:16px; }
+.botonocu{ color: #FFFFFF;background-color:#cc9966;	font: normal 11px 'ubuntu', Arial;	width:60px;cursor:pointer;border:none;height:16px; }
+.boton{ font-size: 11px;font-family: 'ubuntu', Arial;	width:90px;cursor:pointer;background-image:url(Imagenes/b1.png);color: #FFFFFF;border:none;height:20px;-moz-appearance: none;-webkit-appearance: none;-ms-appearance: none;appearance: none;border-radius: 14px;border: 0;cursor: pointer;display: inline-block;font-weight: 700;	text-align: center;	text-decoration: none;letter-spacing:0.5px;	}
+.boton1{ font-size: 11px;font-family: 'ubuntu', Arial;	width:60px;cursor:pointer;background-color:#7d97a5;color: #FFFFFF;border:none;height:20px;-moz-appearance: none;-webkit-appearance: none;-ms-appearance: none;appearance: none;border-radius: 4px;border: 0;cursor: pointer;display: inline-block;font-weight: 700;	text-align: center;	text-decoration: none;	text-transform: uppercase;}
+.boton2{ font-size: 10px;font-family: 'ubuntu', Arial;	width:70px;cursor:pointer;background-image:url(Imagenes/b2.png);color: #FFFFFF;border:none;height:18px;-moz-appearance: none;-webkit-appearance: none;-ms-appearance: none;appearance: none;border-radius: 4px;border: 0;cursor: pointer;display: inline-block;font-weight: 700;	text-align: center;	text-decoration: none;letter-spacing:0.5px;	}
+
+.boton3{ font-size: 11px;font-family: 'ubuntu', Arial;	width:90px;cursor:pointer;background-image:url(Imagenes/b1.png);color: #FFFFFF;border:none;height:20px;-moz-appearance: none;-webkit-appearance: none;-ms-appearance: none;appearance: none;border-radius: 14px;border: 0;cursor: pointer;display: inline-block;font-weight: 700;	text-align: center;	text-decoration: none;letter-spacing:0.5px;	}
+.boton5{ font-size: 12px;font-family: 'ubuntu', Arial;	width:120px;cursor:pointer;background-image:url(Imagenes/b1.png);color: #FFFFFF;border:none;height:27px;-moz-appearance: none;-webkit-appearance: none;-ms-appearance: none;appearance: none;border-radius: 14px;border: none;cursor: pointer;display: inline-block;font-weight: 700;	text-align: center;	text-decoration: none;letter-spacing:0.5px;	}
+.boton0{ font-size: 11px;font-family: 'ubuntu', Arial;	width:80px;cursor:pointer;height:20px;border:none;color: #FFFFFF;background-color:#bbb;-moz-appearance: none;-webkit-appearance: none;-ms-appearance: none;appearance: none;border-radius: 4px;cursor: pointer;display: inline-block;border: 0;text-align: center;	text-decoration: none;	text-transform: uppercase;}
+
+
+.boton02{ font-size: 11px;font-family: Arial, Helvetica, sans-serif;width:80px;cursor:pointer;height:20px;border: 1px solid #4e79b5;color:#4e79b5;border-radius: 4px;}
+.boton02:hover{background-color:rgba(144, 144, 144, 0.045);}
+
+
+.boton0:hover{ background-color:#f1f1f1;color: #bbb;}
+.botonlog:hover{  text-decoration:underline; }
+
+
+
+/* botones iconos*/
+.botonsalirG{	background:  url(Imagenes/salirG.png) no-repeat;	border:none;	width:22px;	height:20px;cursor:pointer;   }
+.botonbuscarG{	background:  url(Imagenes/BuscarG.png) no-repeat;border:none;		width:22px;	height:20px;cursor:pointer;   }
+
+.botonborrar{background:  url(Imagenes/EliminarFila.png) no-repeat;	border:none; 	width:16px;height:16px;cursor:pointer;   }
+.botonclave{background:  url(Imagenes/clave.png) no-repeat;	border:none;	 		width:16px;height:16px;cursor:pointer;   }
+.botonlupa{	background:  url(Imagenes/lupa.png) no-repeat;	border:none;			width:16px;	height:16px;cursor:pointer;   }
+.botonseleccionar{	background:  url(Imagenes/tick.png) no-repeat;border:none;		width:16px;	height:16px;cursor:pointer;   }
+.botongrabar{	background:  url(Imagenes/Estado.png) no-repeat;border:none;		width:16px;	height:16px;cursor:pointer;   }
+.botonmodificar{background:  url(Imagenes/ModificarFila.png) no-repeat;border:none; width:16px;height:16px;cursor:pointer;   }
+
+.botonexcel{	background:  url(Imagenes/Excel.png) no-repeat;	border:none;		width:33px;	height:33px;cursor:pointer;   }
+
+
+/*formulario*/
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select,textarea {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	border-radius: 4px;
+	border: none;
+	border: solid 1px rgba(144, 144, 144, 0.55);
+	text-decoration: none;
+	width: 100%;
+}
+
+
+
+/* iconos new */
+
+/* color*/
+.iconblue{color: #00bcd4;}
+.icongreen{color: #4CAF50;}
+.iconred{color: #ce1b28;}
+.icongray{color: #555555;}
+
+/* tamaño */
+.iconbig{font-size: 30px;cursor:pointer;padding-top:3px;}
+.iconmedium{font-size: 20px;cursor:pointer;}
+.iconsmall{font-size: 16px;cursor:pointer;}
+.iconvsmall{font-size: 14px;cursor:pointer;}
+
+/* botones */
+.iconbtn {
+    padding:0;
+    background: none;
+    border:none;
+}

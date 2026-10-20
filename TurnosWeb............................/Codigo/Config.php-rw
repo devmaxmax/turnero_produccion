@@ -1,0 +1,11 @@
+<?php  
+
+$server="localhost"; 
+
+$database="rwredcom_cmitt"; 
+
+$dbpass="v2KXIc96hU"; 
+
+$dbuser="rwredcom_cmittu";
+
+?>

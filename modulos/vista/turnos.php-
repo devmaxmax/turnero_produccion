@@ -1,0 +1,194 @@
+﻿<section id="inicio" class="fondo_white" style="margin-top: 30px;">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-10 col-lg-offset-1 heading-title2 style2">
+
+                <h3>Solicitar Turno </h3>
+                              
+ 
+            </div>
+
+
+
+            <div class="col-lg-6 text-center">
+
+            <div class="well-t sr-contact" >              
+                
+                    <span class="ti-clipboard" style="font-size: 60px; margin: 0px 0px 20px 0px;color:#20a1d7; display: inline-block;"></span>
+
+                    <h3 style="font-size:18px;width: 260px;    text-align: center; margin: 0px auto;">Turnos Exámenes Laborales de Ingreso, Periódicos y Egreso</h3>
+
+                    <a href="http://cmit.com.ar/TurnosWeb/TurnosWeb.php" target="_blank" class="btn btn-prest3"  style="margin-top: 30px;font-size: 14px">Reservar Turno</a> 
+                    <div class="clearfix"></div>
+
+
+            </div>
+
+            </div>
+
+            <div class="col-lg-6 text-center">
+
+            <div class="well-t sr-contact" style="background: #fff; text-align: center; ">              
+                
+                
+                    <img src="img/drivercard.png" style="margin: 0px 0px 21px 0px;width: 60px;">
+
+                    <h3 style="font-size:18px;width: 200px;  text-align: center; margin: 0px auto;">Turnos Exámenes para Licencia de Conducir</h3>
+
+                    <a href="https://secure.iturnos.com/inicio/usuarios/index.php?id_empresa=820" target="_blank" class="btn btn-prest3"  style="margin-top: 30px;font-size: 14px">Reservar Turno</a> 
+                    <div class="clearfix"></div>
+
+
+            </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<section class="fondo_white"  style="margin-top:40px; margin-bottom: 40px;">
+
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col-lg-10 col-lg-offset-1 heading-title2 style2">
+
+                <h3>Condiciones de Servicio Exámenes Laborales</h3>         
+ 
+            </div>
+
+            <div class="col-lg-12" style="margin-top:20px;">
+
+                <h3>Pagos y Presupuestos</h3>
+                <br>
+                <p style="font-size:16px">Los estudios deben ser abonados antes de enviar al paciente.</p>
+                <br>
+                <p style="font-size:16px">Para solicitar información de medios de pago, CBU y solicitar un presupuesto, contactar al departamento de Administración y Facturación al correo facturacion@cmit.com.ar  </p>
+                <br>
+                
+
+            </div>
+
+        </div>
+    </div>
+
+
+</section>
+
+<section id="catalogo" class="fondo_white" style="margin-top:40px;  margin-bottom: 40px" >
+
+    <div class="container">
+        <div class="row">
+
+          <div class="col-lg-10 col-lg-offset-1 heading-title style2">
+                  <h3>Pasos para crear su usuario de turnos</h3>
+                  <!-- <p><?=$prestaciones['contenido'];?></p> -->
+          </div>
+
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10  col-lg-offset-1 col-md-4 text-center">
+                <div class="box-pasos">  
+
+                    <div class="box-pasos-left">
+                       1
+                    </div>
+
+                    <div class="box-pasos-right">
+                        <P>Leer el apartado debajo de estas instrucciones con atención antes de comenzar, luego hacer click en el botón Solicitar Turno y completar la información requerida.</P>
+                    </div>
+                                    
+                </div>
+
+                <div class="box-pasos">  
+
+                    <div class="box-pasos-left">
+                       2
+                    </div>
+
+                    <div class="box-pasos-right">
+                        <P>Click en Crear Cuenta.</P>
+                    </div>
+                                    
+                </div>
+
+
+                <div class="box-pasos">  
+
+                    <div class="box-pasos-left">
+                       3
+                    </div>
+
+                    <div class="box-pasos-right">
+                        <P>Completar los datos solicitados en el formulario teniendo en cuenta que los espacios marcados con asterisco son de carácter obligatorio.</P>
+                    </div>
+                                    
+                </div>
+
+                <div class="box-pasos">  
+
+                    <div class="box-pasos-left">
+                       4
+                    </div>
+
+                    <div class="box-pasos-right">
+                        <P>Luego de enviado el formulario con los datos requeridos deberá aguardar el correo electrónico de CMIT con la clave de acceso y aprobación de alta de su usuario.</P>
+                    </div>
+                                    
+                </div>
+
+                <div class="box-pasos">  
+
+                    <div class="box-pasos-left">
+                       5
+                    </div>
+
+                    <div class="box-pasos-right">
+                        <P>Una vez recibida la clave de acceso, haga <a href="http://cmit.com.ar/TurnosWeb/InicioIntranet" target="_blank" style="text-decoration:underline;"><b style="font-weight: 500">click aquí</b></a> para loguearse en <a href="http://cmit.com.ar/TurnosWeb/InicioIntranet" target="_blank" style="text-decoration:underline;"><b style="font-weight: 500">Turnos Web CMIT</b></a>. Allí podrá visualizar la disponibilidad de días y horarios para sus turnos.</P>
+                    </div>
+                                    
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</section>
+
+
+<section class="fondo_white" style="margin-top:40px;  margin-bottom: 40px" >
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-8  col-lg-offset-2 col-md-12 text-center">
+                <div class="center-banner2">  
+
+                    <div class="col-md-8">
+                        <h3>
+                            Solicite ahora su presupuesto haciendo click en el siguiente botón
+                        </h3>
+                    </div>
+
+                    <div class="col-md-4 text-right">
+                        <a href="<?=$general['root'];?>/presupuesto" class="btn btn-prest2" style="width: 210px; margin-top: 10px">Solicitar Presupuesto <span class="ti-angle-right" style="margin-left: 15px"></span></a>
+                    </div>                                    
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
