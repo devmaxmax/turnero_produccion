@@ -106,7 +106,15 @@ GLO_tituloypath(0,1120,'../ConsultaCMIT.php','VER TURNO','linksalir');
 		<td  align="right" width="120">Turno:</td>
 		<td  valign="top"  width="650">
 			<input  name="TxtFecha" type="text" readonly="true"  class="TextBoxRO" style="width:110px"  value="<? echo $_SESSION['TxtFecha'];?>" >
-			<input  name="TxtHora" type="text"  readonly="true"  class="TextBoxRO" style="width:80px"  value="<? echo $_SESSION['TxtHora'];?>" >&nbsp; <label class="comentario3"  style="font-weight:normal;"><? echo $_SESSION['TxtDiasFaltantes']; ?></label> &nbsp;&nbsp;&nbsp;&nbsp;<? if($_SESSION['TxtIdEstado']!=3) echo '<button name="CmdAtender" type="submit" class="iconbtn2" value="" title=""><i class="fa fa-check iconsmallbt iconlgray"></i></button>'; ?> <label <? echo $colorest; ?>><? echo $_SESSION['ChkAt']; ?></label>
+			<input  name="TxtHora" type="text"  readonly="true"  class="TextBoxRO" style="width:80px"  value="<? echo $_SESSION['TxtHora'];?>" >&nbsp; <label class="comentario3"  style="font-weight:normal;"><? echo $_SESSION['TxtDiasFaltantes']; ?></label>&nbsp;&nbsp;<?php 
+			if($_SESSION['TxtIdEstado']!=3) {
+				$btnColor = ($_SESSION['TxtIdEstado']==0) 
+					? 'background-color:#f44336; border:1px solid #d32f2f; color:#ffffff;' 
+					: 'background-color:#0F9D58; border:1px solid #0b8043; color:#ffffff;';
+				$titleBtn = ($_SESSION['TxtIdEstado']==0) ? 'Atender' : 'Borrar Atendido';
+				echo '<button name="CmdAtender" type="submit" class="boton" style="width:auto; padding:3px 12px; margin:0 0 0 10px; font-size:12px; font-weight:500; cursor:pointer; vertical-align:middle; '.$btnColor.'" title="'.$titleBtn.'"><i class="fa fa-check"></i> '.$_SESSION['ChkAt'].'</button>';
+			}
+			?>
 		</td>
 	</tr>
 </table>
