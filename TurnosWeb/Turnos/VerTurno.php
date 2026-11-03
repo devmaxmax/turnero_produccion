@@ -18,6 +18,7 @@ if ($_GET['Flag1']=="True"){
 		$_SESSION['TxtIdAgenda']=$row['IdAgenda'];
 		$_SESSION['TxtIdUsuario']=$row['IdUsuario'];
 		$_SESSION['TxtIdEstado']=$row['Estado'];
+		$_SESSION['TxtPrecargado']=intval($row['Precargado']);
 		$_SESSION['TxtObs']=$row['Obs'];
 		$_SESSION['TxtPaciente']=$row['Paciente'];
 		$_SESSION['TxtDNIP']=$row['DNIP'];

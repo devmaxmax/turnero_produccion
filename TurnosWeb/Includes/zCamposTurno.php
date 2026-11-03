@@ -1,5 +1,32 @@
 <? GLO_mensajeerror(); ?>
 
+<?php
+// Leyenda para el cliente según estado del turno (Arriba del Turno)
+if(isset($_SESSION['TxtPrecargado']) && $_SESSION['TxtPrecargado']==1 && (!isset($_SESSION['TxtIdEstado']) || $_SESSION['TxtIdEstado']!=1)){
+?>
+<table width="900" border="0" cellspacing="0" cellpadding="0" style="margin: 0px auto 12px auto;">
+<tr>
+	<td style="background-color: #f5f5f5; border: 1px solid #dcdcdc; border-radius: 5px; padding: 14px 20px; font-size: 15px; color: #0F9D58; text-align: center; font-weight: 600; line-height: 1.4;">
+		<i class="fab fa-whatsapp" style="color: #25D366; font-size: 19px; vertical-align: middle; margin-right: 8px;"></i>
+		El equipo de CMIT Tiene todo listo para la llegada de su colaborador, por cambios escribir whatsapp a <a href="https://wa.me/5492994676508" target="_blank" style="color: #0F9D58; font-weight: bold; text-decoration: underline;">2994676508</a>
+	</td>
+</tr>
+</table>
+<?php
+} elseif(isset($_SESSION['TxtIdEstado']) && $_SESSION['TxtIdEstado']==1){
+?>
+<table width="900" border="0" cellspacing="0" cellpadding="0" style="margin: 0px auto 12px auto;">
+<tr>
+	<td style="background-color: #f5f5f5; border: 1px solid #dcdcdc; border-radius: 5px; padding: 14px 20px; font-size: 15px; color: #0F9D58; text-align: center; font-weight: 600; line-height: 1.4;">
+		<i class="fa fa-info-circle" style="color: #0F9D58; font-size: 19px; vertical-align: middle; margin-right: 8px;"></i>
+		Su Colaborador ya esta en proceso de atención o concluyo todo su exámen.
+	</td>
+</tr>
+</table>
+<?php
+}
+?>
+
 <!--turno--> 
 <table width="900" border="0" cellspacing="0" class="Tabla TMT" >
 <tr>
@@ -15,8 +42,6 @@
 		</td>
 	</tr>
 </table>
-
-
 
 <? GLO_Hidden('TxtIdAgenda',0);GLO_Hidden('TxtIdUsuario',0);GLO_Hidden('TxtFPago',0); ?>
 
