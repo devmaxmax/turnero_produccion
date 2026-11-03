@@ -37,11 +37,21 @@ if ( ($query!="")){
 		$tablaclientes .="<td "."width="."90"." class="."TableShowT"."> Estado</td>"; 
 		$tablaclientes .="<td "."width="."150"." class="."TableShowT"."></td>"; 
 		$tablaclientes .=" </tr> ";    
-		$recuento=0;$recuentosa=0; $recuentoat=0;  $recuentoeli=0;             
+		$recuento=0;$recuentosa=0;$recuentopre=0;$recuentoat=0;$recuentoeli=0;             
 		while($row=mysql_fetch_array($rs)){
 			if ($row['Estado']==3){$clase="TableShowD TGray";}else{$clase="TableShowD";}	
 			if($row['IdRSF']==0){$empresa=$row['RSF0'];$cuit=$row['CUITF0'];}else{$empresa=$row['RSF'];$cuit=$row['CUITF'];}
-			if($row['Estado']==0){$estado='Sin Atender';$colorest='';$recuentosa=$recuentosa+1;}
+			if($row['Estado']==0){
+				if(isset($row['Precargado']) && $row['Precargado']==1){
+					$estado='Precargado';
+					$colorest=' style="font-weight:bold;color:#0F9D58; text-align:center;"';
+					$recuentopre=$recuentopre+1;
+				}else{
+					$estado='Sin Atender';
+					$colorest='';
+					$recuentosa=$recuentosa+1;
+				}
+			}
 			if($row['Estado']==1){$estado='Atendido';$colorest=' style="font-weight:bold;color:#0F9D58; text-align:center;"';$recuentoat=$recuentoat+1;}
 			if($row['Estado']==3){$estado='Eliminado';$colorest=' style="font-weight:bold;color:#86868b; text-align:center;"';$recuentoeli=$recuentoeli+1;}
 			$fecha=ObtenerDiaSemanaCorto(FormatoFecha($row['Fecha'])).' '.FormatoFecha($row['Fecha']).' '.date("H:i",strtotime($row['Hora']));
@@ -88,7 +98,7 @@ if ( ($query!="")){
 		}	
 		//Cerrar tabla
 		$tablaclientes .="</table>"; 
-		$tablaclientes .="<p class="."recuento"." align="."right"."> $recuento turnos | $recuentosa sin atender, $recuentoat atendidos, $recuentoeli eliminados</p>"; 
+		$tablaclientes .="<p class="."recuento"." align="."right"."> $recuento turnos | $recuentosa sin atender, $recuentopre precargados, $recuentoat atendidos, $recuentoeli eliminados</p>"; 
 		$tablaclientes .='<table align="right" ><tr> <td></td></tr><tr><td>'.GLO_FAButton('CmdExcel','submit','110','self','Exportar','excel','')."       ".GLO_FAButton('CmdExcelllama','submit','110','self','Exportar LLAMADOR','excel','').'</td></tr></table></td></tr></table>';
 		echo $tablaclientes;	
 	}else{echo '<p class="MuestraConf" align="center">No existen datos</p>';}
@@ -107,6 +117,8 @@ if( "99" == $_SESSION['CbEstado']) { $combo .= " <option value="."'99'"." select
 else{$combo .= " <option value="."'99'"." >".""."</option>\n";}
 if( "0" == $_SESSION['CbEstado']) { $combo .= " <option value="."'0'"." selected='selected'>"."SIN ATENDER"."</option>\n";}
 else{$combo .= " <option value="."'0'"." >"."SIN ATENDER"."</option>\n";}
+if( "4" == $_SESSION['CbEstado']) { $combo .= " <option value="."'4'"." selected='selected'>"."PRECARGADO"."</option>\n";}
+else{$combo .= " <option value="."'4'"." >"."PRECARGADO"."</option>\n";}
 if( "1" == $_SESSION['CbEstado']) { $combo .= " <option value="."'1'"." selected='selected'>"."ATENDIDO"."</option>\n";}
 else{$combo .= " <option value="."'1'"." >"."ATENDIDO"."</option>\n";}
 if( "3" == $_SESSION['CbEstado']) { $combo .= " <option value="."'3'"." selected='selected'>"."ELIMINADO"."</option>\n";}

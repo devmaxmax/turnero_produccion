@@ -12,12 +12,11 @@ elseif (isset($_POST['CmdAtender'])){
 	mysql_free_result($rs);
 	//actualizo SI NO ESTA ELIMINADO
 	if($estado!=3){
-		// Si está precargado, no se puede atender
-		if($precargado==1 && $estado==0){
-			$rs=false;
+		if($estado==0){
+			// Al activar Atendido, se desactiva Precargado
+			$query="Update turnos Set Estado=1, Precargado=0 Where Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);
 		}else{
-			if($estado==0){$query="Update turnos Set Estado=1 Where Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);}
-			else{$query="Update turnos Set Estado=0 Where Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);}
+			$query="Update turnos Set Estado=0 Where Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);
 		}
 	}
 	//vuelvo
@@ -36,12 +35,11 @@ elseif (isset($_POST['CmdPrecargado'])){
 	mysql_free_result($rs);
 	//actualizo SI NO ESTA ELIMINADO
 	if($estado!=3){
-		// Si está atendido, no se puede precargar
-		if($estado==1){
-			$rs=false;
+		if($precargado==0){
+			// Al activar Precargado, se desactiva Atendido
+			$query="Update turnos Set Precargado=1, Estado=0 Where Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);
 		}else{
-			$nuevoPrecargado = ($precargado==1) ? 0 : 1;
-			$query="Update turnos Set Precargado=$nuevoPrecargado Where Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);
+			$query="Update turnos Set Precargado=0 Where Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);
 		}
 	}
 	//vuelvo

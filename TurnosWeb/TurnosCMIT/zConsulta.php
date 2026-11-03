@@ -14,7 +14,12 @@ if (isset($_POST['CmdBuscar'])){
 	if((empty($_POST['TxtFechaDCP']))){$wfechad="";}else{$wfechad="and DATEDIFF(t.Fecha,'".FechaMySql($_POST['TxtFechaDCP'])."')>=0";}
 	if((empty($_POST['TxtFechaHCP']))){$wfechah="";}else{$wfechah="and DATEDIFF(t.Fecha,'".FechaMySql($_POST['TxtFechaHCP'])."')<=0";}
 	$tipoex=intval($_POST['CbEx']);if($tipoex!=0){$wtipoex="and t.IdTipoEx=$tipoex";}else{$wtipoex='';}
-	$est=intval($_POST['CbEstado']);if($est!=99){$west="and t.Estado=$est";}else{$west='';}
+	$est=intval($_POST['CbEstado']);
+	if($est!=99){
+		if($est==4){$west="and t.Precargado=1 and t.Estado=0";}
+		elseif($est==0){$west="and t.Estado=0 and t.Precargado=0";}
+		else{$west="and t.Estado=$est";}
+	}else{$west='';}
 	$fpago=intval($_POST['CbFP']);if($fpago!=99){$wfpago="and t.FPago1=$fpago";}else{$wfpago='';}
 	$query="Select t.*,tex.Nombre as TipoEx,e.Nombre as Entidad,uc.RSF,uc.CUITF,uc.NFF,uc.DomiF,uc.PciaF,uc.RSPF,u.Nombre,u.Apellido,u.Tel,u.RSF as RSF0,u.CUITF as CUITF0,u.NFF as NFF0,u.DomiF as DomiF0,u.PciaF as PciaF0,u.RSPF as RSPF0,tde.Nombre as FP2 From turnos t,tipoexamen tex,entidades e,usuariosclientes uc,usuarios u,turnosdetalle tde Where t.Id<>0 and t.IdTipoEx=tex.Id and t.IdEntidad=e.Id and uc.Id=t.IdRSF and u.Usuario=t.IdUsuario and t.FPago2=tde.Id and t.Estado<>2  $wfechad $wfechah $wtipoex $west $wrs $wfpago Order by t.Fecha,t.Hora";
 	foreach($_POST as $key => $value){$_SESSION[$key] = $value;}
@@ -63,7 +68,7 @@ elseif (isset($_POST['CmdBorrar'])){
 }
 
 elseif (isset($_POST['CmdAtender'])){
-	$query="Update turnos Set Estado=1 Where Id=".intval($_POST['TxtId']);
+	$query="Update turnos Set Estado=1, Precargado=0 Where Id=".intval($_POST['TxtId']);
 	$conn=mysql_connect($server,$dbuser,$dbpass);mysql_select_db($database);$rs=mysql_query($query,$conn);
 	if ($rs){GLO_feedback(1);}else{GLO_feedback(2);} 
 	mysql_close($conn); 

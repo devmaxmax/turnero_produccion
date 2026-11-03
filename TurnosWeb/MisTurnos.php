@@ -99,7 +99,27 @@ if ( ($query!="")){
 
 GLO_InitHTML($_SESSION["NivelArbol"],'','BannerConMenuHV','Turnos/zMisTurnos',0,0,0,0); 
 GLO_tituloypath(0,1120,'Inicio.php','MIS TURNOS','linksalir');
+?>
 
+<table width="1120" border="0" cellspacing="0" cellpadding="0" style="margin: 0px auto 15px auto;">
+<tr>
+	<!-- Badge PRECARGADO -->
+	<td width="550" valign="middle" style="background-color: #f5f5f5; border: 1px solid #dcdcdc; border-radius: 6px; padding: 10px 16px; font-size: 13px; color: #333333; line-height: 1.4;">
+		<span style="display:inline-block; background-color:#e2e2e2; color:#0F9D58; font-weight:bold; padding:3px 8px; border-radius:4px; font-size:11px; margin-right:8px; letter-spacing:0.5px;">PRECARGADO</span>
+		El equipo de CMIT Tiene todo listo para la llegada de su colaborador, por cambios escribir whatsapp a <a href="https://wa.me/5492994676508" target="_blank" style="color:#005391; font-weight:bold; text-decoration:underline;">2994676508</a>
+	</td>
+
+	<td width="20"></td>
+
+	<!-- Badge ATENDIDO -->
+	<td width="550" valign="middle" style="background-color: #f5f5f5; border: 1px solid #dcdcdc; border-radius: 6px; padding: 10px 16px; font-size: 13px; color: #333333; line-height: 1.4;">
+		<span style="display:inline-block; background-color:#e2e2e2; color:#0F9D58; font-weight:bold; padding:3px 8px; border-radius:4px; font-size:11px; margin-right:8px; letter-spacing:0.5px;">ATENDIDO</span>
+		Su Colaborador ya esta en proceso de atención o concluyo todo su exámen.
+	</td>
+</tr>
+</table>
+
+<?php
 GLO_mensajeerror();
 GLO_Hidden('TxtId',0);
 MostrarTabla($conn);
