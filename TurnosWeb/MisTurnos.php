@@ -40,8 +40,13 @@ if ( ($query!="")){
 		$recuento=0;          
 		while($row=mysql_fetch_array($rs)){
 			if($row['IdRSF']==0){$empresa=$rsf0;}else{$empresa=$row['RSF'];}
-			if($row['Estado']==0){$estado='Sin Atender';$colorest='';}
-			else{$estado='Atendido';$colorest=' style="font-weight:bold;color:#0F9D58"';}			
+			if($row['Estado']==1){
+				$estado='Atendido';$colorest=' style="font-weight:bold;color:#0F9D58"';
+			}elseif(isset($row['Precargado']) && $row['Precargado']==1){
+				$estado='Precargado';$colorest=' style="font-weight:bold;color:#0F9D58"';
+			}else{
+				$estado='Sin Atender';$colorest='';
+			}			
 			$clickeliminar="'Desea eliminar el turno ".$fecha."? Grabara los cambios y enviara mail a su Usuario'";
 			//si es sobreturno letra azul
 			if($row['STurno']==1){
@@ -60,7 +65,8 @@ if ( ($query!="")){
 			$tablaclientes .="<td class="."TableShowD"." style='text-align:center;'> ".substr($row['TipoEx'],0,20)."</td>"; 
 			$tablaclientes .="<td class="."TableShowD".$colorest." style='text-align:center;'> ".$estado."</td>"; 
 			$tablaclientes .="<td class="."TableShowD"." style='text-align:center;'>"; 
-			if($row['Estado']==0){
+			$puedeOperar = ($row['Estado']==0 && (!isset($row['Precargado']) || $row['Precargado']==0));
+			if($puedeOperar){
 				$tablaclientes .='<input name="CmdVer" type="submit" class="boton" style="width:60px;"  value="Editar" id="'.$row['Id'].'"  onclick="document.Formulario.TxtId.value=this.id;document.Formulario.target='."'_self'".'"> <input name="CmdBorrar" type="submit" class="botonc" value="Borrar" style="width:60px;" id="'.$row['Id'].'"  onclick="document.Formulario.TxtId.value=this.id;document.Formulario.target='."'_self'".';return confirm('.$clickeliminar.');">';
 			}else{
 				$tablaclientes .='<input name="CmdSoloVer" type="submit" class="boton" style="width:60px;"  value="Ver" id="'.$row['Id'].'"  onclick="document.Formulario.TxtId.value=this.id;document.Formulario.target='."'_self'".'">';
@@ -68,12 +74,12 @@ if ( ($query!="")){
 
 
 
-			if($row['Estado']==0 AND $rowe['docu'] ==1){
+			if($puedeOperar AND $rowe['docu'] ==1){
 				$tablaclientes .='<a href="Turnos/Documentacion.php?id='.encrypt($row['Id'],'elcrucedelosandes2016').'" class="boton_cert" data-toggle="tooltip" data-placement="top" title="Documentaci&oacute;n"><i class="fas fa-clone"></i></a>';
 			}
 
 			//exporta a pdf si estan sin atender
-			if($row['Estado']==0){
+			if($puedeOperar){
 				$tablaclientes .='<a href="Certificado_print.php?id='.$row['Id'].'&empresa='.substr($empresa,0,12).'&examen='.substr($row['TipoEx'],0,20).'" target="_blank" class="boton_cert" data-toggle="tooltip" data-placement="top" title="Constancia de Turno"><i class="fas fa-download"></i></a>';
 			}			
 			$tablaclientes .="</td>";  

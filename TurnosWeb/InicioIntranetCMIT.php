@@ -1,4 +1,4 @@
-<? include ("Codigo/HeadFull.php");?>
+|<? include ("Codigo/HeadFull.php");?>
 
 <link rel="STYLESHEET" type="text/css" href="CSS/Estilo.css" >
 

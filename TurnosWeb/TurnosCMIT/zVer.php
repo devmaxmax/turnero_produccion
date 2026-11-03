@@ -4,14 +4,45 @@
 if ($_SESSION["IdPerfilUser"]!=1 and $_SESSION["IdPerfilUser"]!=2 and $_SESSION["IdPerfilUser"]!=3 and $_SESSION["IdPerfilUser"]!=4 and $_SESSION["IdPerfilUser"]!=10){ header("Location:".$_SESSION["NivelArbol"]."TurnosWebCMIT.php");}
 
 elseif (isset($_POST['CmdAtender'])){
-	//busco estado
+	//busco estado y precargado
 	$conn=mysql_connect($server,$dbuser,$dbpass);mysql_select_db($database);
-	$query="SELECT Estado FROM turnos WHERE  Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);
-	$row=mysql_fetch_array($rs);if(mysql_num_rows($rs)!=0){$estado=$row['Estado'];}else{$estado=0;}mysql_free_result($rs);
+	$query="SELECT Estado, Precargado FROM turnos WHERE Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);
+	$row=mysql_fetch_array($rs);
+	if(mysql_num_rows($rs)!=0){$estado=$row['Estado'];$precargado=intval($row['Precargado']);}else{$estado=0;$precargado=0;}
+	mysql_free_result($rs);
 	//actualizo SI NO ESTA ELIMINADO
 	if($estado!=3){
-		if($estado==0){$query="Update turnos Set Estado=1 Where Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);}
-		else{$query="Update turnos Set Estado=0 Where Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);}
+		// Si está precargado, no se puede atender
+		if($precargado==1 && $estado==0){
+			$rs=false;
+		}else{
+			if($estado==0){$query="Update turnos Set Estado=1 Where Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);}
+			else{$query="Update turnos Set Estado=0 Where Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);}
+		}
+	}
+	//vuelvo
+	if ($rs){GLO_feedback(1);}else{GLO_feedback(2);} 
+	mysql_close($conn); 
+	foreach($_POST as $key => $value){$_SESSION[$key] = $value;}
+	header("Location:Ver.php?id=".encrypt($_POST['TxtNumero'],'elcrucedelosandes2016')."&Flag1=True");	
+}
+
+elseif (isset($_POST['CmdPrecargado'])){
+	//busco estado y precargado
+	$conn=mysql_connect($server,$dbuser,$dbpass);mysql_select_db($database);
+	$query="SELECT Estado, Precargado FROM turnos WHERE Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);
+	$row=mysql_fetch_array($rs);
+	if(mysql_num_rows($rs)!=0){$estado=$row['Estado'];$precargado=intval($row['Precargado']);}else{$estado=0;$precargado=0;}
+	mysql_free_result($rs);
+	//actualizo SI NO ESTA ELIMINADO
+	if($estado!=3){
+		// Si está atendido, no se puede precargar
+		if($estado==1){
+			$rs=false;
+		}else{
+			$nuevoPrecargado = ($precargado==1) ? 0 : 1;
+			$query="Update turnos Set Precargado=$nuevoPrecargado Where Id=".intval($_POST['TxtNumero']);$rs=mysql_query($query,$conn);
+		}
 	}
 	//vuelvo
 	if ($rs){GLO_feedback(1);}else{GLO_feedback(2);} 

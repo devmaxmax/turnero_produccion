@@ -19,8 +19,8 @@
 
                     <h3 style="font-size:18px;width: 260px;    text-align: center; margin: 0px auto;">EMPRESAS<br>Turnos Exámenes Laborales de Ingreso, Periódicos y Egreso</h3>
 
-                    <a href="http://cmit.com.ar/TurnosWeb/TurnosWeb.php" target="_blank" class="btn btn-prest3"  style="margin-top: 30px;font-size: 14px">Reservar Turno</a> 
-                    <div class="clearfix"></div>
+                    <a href="http://cmit.coTurnosWeb/TurnosWeb.php" target="_blank" class="btn btn-prest3"  style="margin-top: 30px;font-size: 14px">Reservar Turno</a> 
+                    <div class="clearfix"></divm.ar/>
 
 
             </div>

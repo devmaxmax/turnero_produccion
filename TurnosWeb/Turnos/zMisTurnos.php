@@ -14,9 +14,14 @@ if (isset($_POST['CmdBorrar'])){
 		$obsp=$row2['ObsPuesto'];$obst=$row2['ObsTipo'];$det=$row2['Detalle'];$obs=$row2['Obs'];
 		$nroturno=str_pad($row2['Id'], 6, "0", STR_PAD_LEFT);
 		$alerta=GLO_TURRiesgo2($row2['Riesgo'],$row2['FPago']);
+		$est=$row2['Estado'];$precargado=intval($row2['Precargado']);
 	}mysql_free_result($rs2);
-	//borro
-	$query="Update turnos Set Estado=3 Where Id=".intval($_POST['TxtId']);$rs=mysql_query($query,$conn);
+	//borro solo si esta sin atender y no precargado
+	if($est==0 && $precargado==0){
+		$query="Update turnos Set Estado=3 Where Id=".intval($_POST['TxtId']);$rs=mysql_query($query,$conn);
+	}else{
+		$rs=false;
+	}
 	if ($rs){
 		GLO_feedback(1);		
 		if($a!=''){		
@@ -40,8 +45,16 @@ if (isset($_POST['CmdBorrar'])){
 
 
 elseif (isset($_POST['CmdVer'])){
+	$conn=mysql_connect($server,$dbuser,$dbpass);mysql_select_db($database);
+	$query="SELECT Estado, Precargado FROM turnos WHERE Id=".intval($_POST['TxtId']);$rs=mysql_query($query,$conn);
+	$row=mysql_fetch_array($rs);if(mysql_num_rows($rs)!=0){$estado=$row['Estado'];$precargado=intval($row['Precargado']);}else{$estado=0;$precargado=0;}
+	mysql_free_result($rs);mysql_close($conn);
 	foreach($_POST as $key => $value){$_SESSION[$key] = '';}
-	header("Location:ModificarTurno.php?id=".encrypt($_POST['TxtId'],'elcrucedelosandes2016')."&Flag1=True");	
+	if($estado!=0 || $precargado==1){
+		header("Location:VerTurno.php?id=".encrypt($_POST['TxtId'],'elcrucedelosandes2016')."&Flag1=True");
+	}else{
+		header("Location:ModificarTurno.php?id=".encrypt($_POST['TxtId'],'elcrucedelosandes2016')."&Flag1=True");	
+	}
 }
 
 elseif (isset($_POST['CmdSoloVer'])){

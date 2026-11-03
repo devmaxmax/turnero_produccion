@@ -39,6 +39,7 @@ if ($_GET['Flag1']=="True"){
 		$_SESSION['OptFPago2'] = $row['FPago2'];
 		$_SESSION['TxtFPago'] =0;
 		$_SESSION['TxtSTurno'] = GLO_TURSobreturnoLY($row['STurno']);
+		$_SESSION['TxtPrecargado'] = intval($row['Precargado']);
 		//estado
 		if($row['Estado']==1){$_SESSION['ChkAt']='Atendido';$colorest=' style="font-weight:bold;color:#0F9D58"';$helpest='Borrar Atendido';}
 		if($row['Estado']==0){$_SESSION['ChkAt']='Sin Atender';$colorest=' style="font-weight:bold;color:#f44336"';$helpest='Atender';}
@@ -101,7 +102,34 @@ GLO_tituloypath(0,700,'','VER TURNO','salir');
 
 <table width="700" border="0"  cellspacing="0" class="Tabla" >
 <tr> <td width="150" height="3"  ></td><td width="50" height="3"  ></td> <td width="500"></td> </tr>
-<tr><td  height="18" >&nbsp;<input  name="TxtNumero" type="text"  readonly="true"  class="TextBoxRO" style="width:50px" value="<? echo $_SESSION['TxtNumero'];?>"> <label class="comentario3" style="color:#4285F4;"><? echo $_SESSION['TxtSTurno']; ?></label></td><td  align="right"  >Turno:</td><td  valign="top" >&nbsp; <input  name="TxtFecha" type="text"  readonly="true"  class="TextBoxRO" style="width:90px"  value="<? echo $_SESSION['TxtFecha'];?>" >  <input  name="TxtHora" type="text"  readonly="true"  class="TextBoxRO" style="width:50px"  value="<? echo $_SESSION['TxtHora'];?>" >&nbsp; <label class="comentario3"  style="font-weight:normal;"><? echo $_SESSION['TxtDiasFaltantes']; ?></label> &nbsp;&nbsp;&nbsp;&nbsp;<? if($_SESSION['TxtIdEstado']!=3) echo '<button name="CmdAtender" type="submit" class="iconbtn2" value="" title=""><i class="fa fa-check iconsmallbt iconlgray"></i></button>'; ?> <label <? echo $colorest; ?>><? echo $_SESSION['ChkAt']; ?></label></td>
+<tr><td  height="18" >&nbsp;<input  name="TxtNumero" type="text"  readonly="true"  class="TextBoxRO" style="width:50px" value="<? echo $_SESSION['TxtNumero'];?>"> <label class="comentario3" style="color:#4285F4;"><? echo $_SESSION['TxtSTurno']; ?></label></td><td  align="right"  >Turno:</td><td  valign="top" >&nbsp; <input  name="TxtFecha" type="text"  readonly="true"  class="TextBoxRO" style="width:90px"  value="<? echo $_SESSION['TxtFecha'];?>" >  <input  name="TxtHora" type="text"  readonly="true"  class="TextBoxRO" style="width:50px"  value="<? echo $_SESSION['TxtHora'];?>" >&nbsp; <label class="comentario3"  style="font-weight:normal;"><? echo $_SESSION['TxtDiasFaltantes']; ?></label>&nbsp;&nbsp;<?php 
+			if($_SESSION['TxtIdEstado']!=3) {
+				$esAtendido = ($_SESSION['TxtIdEstado']==1);
+				$esPrecargado = (isset($_SESSION['TxtPrecargado']) && $_SESSION['TxtPrecargado']==1);
+
+				// Botón Atender
+				if($esPrecargado) {
+					echo '<button type="button" class="boton" style="width:auto; padding:3px 12px; margin:0 0 0 10px; font-size:12px; font-weight:500; vertical-align:middle; background-color:#f44336; border:1px solid #d32f2f; color:#ffffff; opacity:0.4; cursor:not-allowed;" title="No disponible: el turno está precargado" disabled><i class="fa fa-check"></i> Sin Atender</button>';
+				} else {
+					$btnColor = ($esAtendido) 
+						? 'background-color:#0F9D58; border:1px solid #0b8043; color:#ffffff;' 
+						: 'background-color:#f44336; border:1px solid #d32f2f; color:#ffffff;';
+					$titleBtn = ($esAtendido) ? 'Borrar Atendido' : 'Atender';
+					echo '<button name="CmdAtender" type="submit" class="boton" style="width:auto; padding:3px 12px; margin:0 0 0 10px; font-size:12px; font-weight:500; cursor:pointer; vertical-align:middle; '.$btnColor.'" title="'.$titleBtn.'"><i class="fa fa-check"></i> '.$_SESSION['ChkAt'].'</button>';
+				}
+
+				// Botón Precargado
+				if($esAtendido) {
+					echo '<button type="button" class="boton" style="width:auto; padding:3px 12px; margin:0 0 0 10px; font-size:12px; font-weight:500; vertical-align:middle; background-color:#f44336; border:1px solid #d32f2f; color:#ffffff; opacity:0.4; cursor:not-allowed;" title="No disponible: el turno ya está atendido" disabled><i class="fa fa-check"></i> Precargado</button>';
+				} else {
+					$btnPreColor = ($esPrecargado)
+						? 'background-color:#0F9D58; border:1px solid #0b8043; color:#ffffff;' 
+						: 'background-color:#f44336; border:1px solid #d32f2f; color:#ffffff;';
+					$titlePreBtn = ($esPrecargado) ? 'Desactivar Precargado' : 'Activar Precargado';
+					echo '<button name="CmdPrecargado" type="submit" class="boton" style="width:auto; padding:3px 12px; margin:0 0 0 10px; font-size:12px; font-weight:500; cursor:pointer; vertical-align:middle; '.$btnPreColor.'" title="'.$titlePreBtn.'"><i class="fa fa-check"></i> Precargado</button>';
+				}
+			}
+			?></td>
 </tr>
 </table>
 	
