@@ -11,17 +11,17 @@ if (isset($_POST['CmdBuscar'])){
 		$wrs="and ((t.IdRSF<>0 and uc.RSF Like '%".$cri."%') or (t.IdRSF=0 and u.RSF Like '%".$cri."%'))";
 		mysql_close($conn); 
 	}
-	if((empty($_POST['TxtFechaDCP']))){$wfechad="";}else{$wfechad="and DATEDIFF(t.Fecha,'".FechaMySql($_POST['TxtFechaDCP'])."')>=0";}
-	if((empty($_POST['TxtFechaHCP']))){$wfechah="";}else{$wfechah="and DATEDIFF(t.Fecha,'".FechaMySql($_POST['TxtFechaHCP'])."')<=0";}
+	if((empty($_POST['TxtFechaDCP']))){$wfechad="";}else{$wfechad="and t.Fecha>='".FechaMySql($_POST['TxtFechaDCP'])."'";}
+	if((empty($_POST['TxtFechaHCP']))){$wfechah="";}else{$wfechah="and t.Fecha<='".FechaMySql($_POST['TxtFechaHCP'])."'";}
 	$tipoex=intval($_POST['CbEx']);if($tipoex!=0){$wtipoex="and t.IdTipoEx=$tipoex";}else{$wtipoex='';}
 	$est=intval($_POST['CbEstado']);
-	if($est!=99){
-		if($est==4){$west="and t.Precargado=1 and t.Estado=0";}
-		elseif($est==0){$west="and t.Estado=0 and t.Precargado=0";}
-		else{$west="and t.Estado=$est";}
-	}else{$west='';}
+	if($est==4){$west="and t.Precargado=1 and t.Estado=0";} // Precargado
+	elseif($est==0){$west="and t.Estado in (0,1) and t.Precargado=0";} // Sin Precarga
+	elseif($est==5){$west="and t.Estado=0";} // Sin Atender (incluye Precargados)
+	elseif($est==1 || $est==3){$west="and t.Estado=$est";} // Atendido / Eliminado
+	else{$west="and t.Estado<>2";} // Todos (99)
 	$fpago=intval($_POST['CbFP']);if($fpago!=99){$wfpago="and t.FPago1=$fpago";}else{$wfpago='';}
-	$query="Select t.*,tex.Nombre as TipoEx,e.Nombre as Entidad,uc.RSF,uc.CUITF,uc.NFF,uc.DomiF,uc.PciaF,uc.RSPF,u.Nombre,u.Apellido,u.Tel,u.RSF as RSF0,u.CUITF as CUITF0,u.NFF as NFF0,u.DomiF as DomiF0,u.PciaF as PciaF0,u.RSPF as RSPF0,tde.Nombre as FP2 From turnos t,tipoexamen tex,entidades e,usuariosclientes uc,usuarios u,turnosdetalle tde Where t.Id<>0 and t.IdTipoEx=tex.Id and t.IdEntidad=e.Id and uc.Id=t.IdRSF and u.Usuario=t.IdUsuario and t.FPago2=tde.Id and t.Estado<>2  $wfechad $wfechah $wtipoex $west $wrs $wfpago Order by t.Fecha,t.Hora";
+	$query="Select t.*,tex.Nombre as TipoEx,e.Nombre as Entidad,uc.RSF,uc.CUITF,uc.NFF,uc.DomiF,uc.PciaF,uc.RSPF,u.Nombre,u.Apellido,u.Tel,u.RSF as RSF0,u.CUITF as CUITF0,u.NFF as NFF0,u.DomiF as DomiF0,u.PciaF as PciaF0,u.RSPF as RSPF0,tde.Nombre as FP2 From turnos t,tipoexamen tex,entidades e,usuariosclientes uc,usuarios u,turnosdetalle tde Where t.Id<>0 and t.IdTipoEx=tex.Id and t.IdEntidad=e.Id and uc.Id=t.IdRSF and u.Usuario=t.IdUsuario and t.FPago2=tde.Id $wfechad $wfechah $wtipoex $west $wrs $wfpago Order by t.Fecha,t.Hora";
 	foreach($_POST as $key => $value){$_SESSION[$key] = $value;}
 	$_SESSION['TxtConsultaTurnos']=$query;
 	header("Location:../ConsultaCMIT.php");

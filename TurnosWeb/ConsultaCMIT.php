@@ -115,8 +115,10 @@ function ComboEstado(){
 $combo="";
 if( "99" == $_SESSION['CbEstado']) { $combo .= " <option value="."'99'"." selected='selected'>".""."</option>\n";}
 else{$combo .= " <option value="."'99'"." >".""."</option>\n";}
-if( "0" == $_SESSION['CbEstado']) { $combo .= " <option value="."'0'"." selected='selected'>"."SIN ATENDER"."</option>\n";}
-else{$combo .= " <option value="."'0'"." >"."SIN ATENDER"."</option>\n";}
+if( "0" == $_SESSION['CbEstado']) { $combo .= " <option value="."'0'"." selected='selected'>"."SIN PRECARGA"."</option>\n";}
+else{$combo .= " <option value="."'0'"." >"."SIN PRECARGA"."</option>\n";}
+if( "5" == $_SESSION['CbEstado']) { $combo .= " <option value="."'5'"." selected='selected'>"."SIN ATENDER"."</option>\n";}
+else{$combo .= " <option value="."'5'"." >"."SIN ATENDER"."</option>\n";}
 if( "4" == $_SESSION['CbEstado']) { $combo .= " <option value="."'4'"." selected='selected'>"."PRECARGADO"."</option>\n";}
 else{$combo .= " <option value="."'4'"." >"."PRECARGADO"."</option>\n";}
 if( "1" == $_SESSION['CbEstado']) { $combo .= " <option value="."'1'"." selected='selected'>"."ATENDIDO"."</option>\n";}
@@ -155,7 +157,7 @@ GLO_tituloypath(0,1120,'InicioCMIT.php','TURNOS REGISTRADOS','linksalir');
 		<td width="70" height="18" align="right">Examen:</td>
 		<td width="170">
 			<select name="CbEx" class="campos" id="CbEx"  style="width:140px" onKeyDown="enterxtab(event)"><option value=""></option><? ComboTablaRFX("tipoexamen","CbEx","Id","","",$conn); ?></select></td>
-		<td width="200">F.Pago: <select name="CbFP" class="campos" id="CbEstado"  style="width:100px" onKeyDown="enterxtab(event)"><? ComboFPago(); ?></select>
+		<td width="200">F.Pago: <select name="CbFP" class="campos" id="CbFP"  style="width:100px" onKeyDown="enterxtab(event)"><? ComboFPago(); ?></select>
 		</td>
 	</tr>
 	<tr>
